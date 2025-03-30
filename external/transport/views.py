@@ -53,7 +53,8 @@ class TransportRouteView(APIView):
         # Step 2: Try fetching transport data from classmate API
         transport_data = []
         try:
-            transport_url = f"http://127.0.0.1:8001/api/routes/?from={from_city}&to={to_city}"
+            # transport_url = f"http://127.0.0.1:8001/api/routes/?from={from_city}&to={to_city}"
+            transport_url = f"http://airlinebusbooking-backend-lb-1215843260.eu-west-1.elb.amazonaws.com/api/airline/search-combined/?from={from_city}&to={to_city}"
             response = requests.get(transport_url)
             response.raise_for_status()
             transport_data = response.json()
